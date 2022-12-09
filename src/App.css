@@ -1,38 +1,223 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+body {
+  background: rgba(0,0,0,0.95);;
   color: white;
+  font-family: 'Inter', sans-serif;
+}
+p.eclipse_para {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+h3 {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 100px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 40px;
 }
 
-.App-link {
-  color: #61dafb;
+
+
+.spotlight_section {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap:40px;
+  margin-bottom: 80px;
+}
+.spotlight_1 {
+  padding-right: 80px;
+  padding-top: 80px;
+  position: relative;
+}
+.spotlight_1 h2 {
+  font-size: 36px;
+  margin-bottom: 24px;
+}
+.spotlight_1 p {
+  line-height: 24px;
+  margin-bottom: 30px;
+}
+.spotlight_1 span {
+  font-size: 14px;
+  cursor: pointer;
+}
+.spotlight_scroll {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  display: flex;
+  align-items: center;
+}
+.spotlight_scroll p {
+  margin: 0;
+}
+.spotlight_scroll span {
+  display: flex;
+  opacity: 25%;
+}
+.spotlight_scroll img{
+  height: 50px !important;
+  width: auto;
+  margin-right: 20px;
+}
+.spotlight_2 {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  overflow: hidden;
+}
+ .spotlight_section img {
+   height: 80vh;
+   width: auto;
+ }
+
+
+
+
+.item_container {
+  max-width: 1240px;
+  margin: 0 auto;
+  margin-bottom: 80px;
+  overflow: hidden;
+  overflow-x: auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.item_container::-webkit-scrollbar {
+  width: 100%;
+  height: 10px;
+}
+.item_container::-webkit-scrollbar-track {
+  width: 100%;
+  height: 8px;
+  border-radius: 10px;
+  background-color: #292929;
+}
+.item_container::-webkit-scrollbar-thumb {
+  background-color: rgba(217,217,217,0.14);
+  border-radius: 8px;
+}
+.item_container::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(217,217,217,0.34);
+}
+
+
+.previous_items {
+  display: flex;
+  grid-gap: 20px;
+  padding-bottom: 40px;
+}
+
+
+.old_items_container {
+  display: flex;
+  flex-wrap: wrap;
+  gap:20px;
+}
+.old_items_container .item_card {
+  margin-bottom: 40px;
+}
+
+
+
+@media screen and (max-width: 1440px) {
+  .App {
+    padding: 0 100px;
   }
-  to {
-    transform: rotate(360deg);
+  .spotlight_section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  h3 {
+    padding: 0;
+  }
+}
+@media screen and (max-width: 1300px) {
+  .spotlight_1 {
+    padding-right: 40px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .spotlight_1 {
+    padding-top: 40px;
+  }
+  .spotlight_section {
+    grid-template-columns: 1fr 1.25fr;
+  }
+  .spotlight_1 h2 {
+    font-size: 28px;
+  }
+  .spotlight_1 p {
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 20px;
+  }
+  .spotlight_1 span {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .App {
+    padding: 0 60px;
+  }
+}
+@media screen and (max-width: 950px) {
+  .spotlight_section {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .spotlight_scroll {
+    display: none;
+  }
+  .spotlight_1 {
+    padding: 0;
+  }
+  .spotlight_2 {
+    justify-content: center;
+    height: 500px;
+    overflow: hidden;
+  }
+  .spotlight_2 img {
+    height: auto;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .spotlight_2 {
+    height: 500px;
+  }
+  .spotlight_2 img {
+    height: 500px;
+    width: auto;
+  }
+}
+
+@media screen and (max-width:600px) {
+  .App {
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .spotlight_2 {
+    height: 300px;
+    overflow: hidden;
+  }
+  .spotlight_2 img {
+    height: 500px;
+    width: auto;
   }
 }
