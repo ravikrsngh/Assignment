@@ -1,5 +1,6 @@
 import './App.css';
 import scrollicon from './assets/scroll.png';
+
 import React from "react";
 
 import {useState, useEffect} from "react";
@@ -37,7 +38,6 @@ const HomePage = () => {
     firstFetch
   } = useFetchData(queryDate)
 
-
   const getNewDate = () => {
 
     let start_date = new Date(Date.parse(queryDate.start_date))
@@ -49,20 +49,21 @@ const HomePage = () => {
     }
   }
 
-  useEffect(()=>{
-    const onScroll = async (event) => {
-      const { scrollHeight, scrollTop, clientHeight } =
-        event.target.scrollingElement;
-      if (scrollHeight - scrollTop <= clientHeight * 1.5) {
+  const onScroll = async (event) => {
+    const { scrollHeight, scrollTop, clientHeight } =
+      event.target.scrollingElement;
+    if (!loading && scrollHeight - scrollTop <= clientHeight * 1.2) {
           setQueryDate(() => getNewDate());
-      }
-    };
+    }
+  };
 
+
+  useEffect(()=>{
     document.addEventListener("scroll", onScroll);
     return () => {
       document.removeEventListener("scroll", onScroll);
     };
-  },[])
+  },[loading,data])
 
   if (loading && firstFetch.current) {
     return (
@@ -100,7 +101,11 @@ const HomePage = () => {
 
       <h3>Older Items</h3>
       <div className="old_items_container item_container">
-        {data?.map((ins,key) => <ItemCard key={key} data={ins}/>)}
+        {data?.map((ins,key) =>{
+          if (key>7) {
+             return <ItemCard key={key} data={ins}/>
+          }
+        })}
         {loading && (
           <>
           <ItemCardLoader />

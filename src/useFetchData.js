@@ -11,10 +11,6 @@ export default function useFetchData(queryDate) {
 
   useEffect(() => {
 
-    if (firstFetch.current) {
-      firstFetch.current = false
-    }
-
     setLoading(true)
     setError(false)
     let cancel
@@ -25,9 +21,17 @@ export default function useFetchData(queryDate) {
       params: { start_date: queryDate.start_date, end_date: queryDate.end_date },
       cancelToken: new axios.CancelToken(c => cancel = c)
     }).then(res => {
+      let data = [...res.data].sort().reverse()
+      if (!firstFetch.current) {
+        data.shift()
+      }
       setData(prevData => {
-        return [...prevData, ...res.data.reverse()]
+        return [...prevData, ...data]
       })
+
+      if (firstFetch.current) {
+        firstFetch.current = false
+      }
       setLoading(false)
     }).catch(e => {
       if (axios.isCancel(e)) return
