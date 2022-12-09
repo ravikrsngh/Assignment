@@ -22,7 +22,6 @@ h3 {
   padding: 0 100px;
   font-weight: 600;
   letter-spacing: 0.5px;
-  margin-bottom: 40px;
 }
 
 
@@ -68,11 +67,15 @@ h3 {
   display: flex;
   opacity: 25%;
 }
+  .spotlight_1 span:hover {
+    text-decoration: underline;
+  }
 .spotlight_scroll img{
   height: 50px !important;
   width: auto;
   margin-right: 20px;
 }
+
 .spotlight_2 {
   display: flex;
   justify-content: flex-end;
@@ -82,8 +85,12 @@ h3 {
  .spotlight_section img {
    height: 80vh;
    width: auto;
+   cursor: pointer;
+   transition: 0.5s;
  }
-
+.spotlight_section img:hover {
+   transform: scale(1.05);
+ }
 
 
 
@@ -91,8 +98,9 @@ h3 {
   max-width: 1240px;
   margin: 0 auto;
   margin-bottom: 80px;
-  overflow: hidden;
   overflow-x: auto;
+  overflow-y: visible;
+  padding-top: 40px;
 }
 
 .item_container::-webkit-scrollbar {
@@ -118,6 +126,7 @@ h3 {
   display: flex;
   grid-gap: 20px;
   padding-bottom: 40px;
+  overflow-y: visible;
 }
 
 
@@ -125,6 +134,7 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   gap:20px;
+  overflow-y: visible;
 }
 .old_items_container .item_card {
   margin-bottom: 40px;

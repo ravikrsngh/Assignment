@@ -3,6 +3,12 @@
   overflow: hidden;
   background-color: #1B1B1B;
   border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.item_card:hover {
+  box-shadow:  0 0 20px rgba(0, 0, 0);
+  transform: translateY(-15px);
 }
 .item_img_container {
   display: flex;
